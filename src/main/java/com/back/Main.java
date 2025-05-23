@@ -38,8 +38,8 @@ public class Main {
                 String author = scanner.nextLine().trim();
 
                 lastId++;
-                WiseSaying ws = new WiseSaying(lastId, content, author);
-                wiseSayings.add(ws);
+                wiseSayings.add(new WiseSaying(lastId, content, author));
+
 
                 System.out.printf("%d번 명언이 등록되었습니다.\n", lastId);
             } else if (cmd.equals("목록")) {
@@ -48,6 +48,16 @@ public class Main {
                 for (int i = wiseSayings.size() - 1; i >= 0; i--) {
                     WiseSaying ws = wiseSayings.get(i);
                     System.out.printf("%d / %s / %s\n", ws.id, ws.author, ws.content);
+                }
+
+            } else if (cmd.startsWith("삭제?id=")) {
+                int idToDelete = Integer.parseInt(cmd.substring("삭제?id=".length()));
+                for (int i = 0; i < wiseSayings.size(); i++) {
+                    if (wiseSayings.get(i).id == idToDelete) {
+                        wiseSayings.remove(i);
+                        System.out.printf("%d번 명언이 삭제되었습니다.\n", idToDelete);
+                        break;
+                    }
                 }
             }
         }
