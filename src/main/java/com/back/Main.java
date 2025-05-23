@@ -92,9 +92,6 @@ public class Main {
                         authors.set(foundIndex, newAuthor);
                     }
                 }
-                int no = ++lastId;
-
-                System.out.println("%d번 명언이 등록되었습니다.".formatted(no));
             }
         }
 
