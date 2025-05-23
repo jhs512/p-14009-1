@@ -64,6 +64,32 @@ public class Main {
                 if (!found) {
                     System.out.printf("%d번 명언은 존재하지 않습니다.\n", idToDelete);
                 }
+
+            } else if (cmd.startsWith("수정?id=")) {
+                int idToEdit = Integer.parseInt(cmd.substring("수정?id=".length()));
+                boolean found = false;
+
+                for (WiseSaying ws : wiseSayings) {
+                    if (ws.id == idToEdit) {
+                        found = true;
+                        System.out.printf("명언(기존) : %s\n", ws.content);
+                        System.out.print("명언 : ");
+                        String newContent = scanner.nextLine().trim();
+
+                        System.out.printf("작가(기존) : %s\n", ws.author);
+                        System.out.print("작가 : ");
+                        String newAuthor = scanner.nextLine().trim();
+
+                        ws.content = newContent;
+                        ws.author = newAuthor;
+
+                        break;
+                    }
+                }
+
+                if (!found) {
+                    System.out.printf("%d번 명언은 존재하지 않습니다.\n", idToEdit);
+                }
             }
         }
 
