@@ -3,6 +3,7 @@ package com.back;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class App {
     private Scanner scanner = new Scanner(System.in);
@@ -120,13 +121,10 @@ public class App {
     }
 
     private int findIndexById(int id) {
-        for (int i = 0; i <= wiseSayings.size(); i++) {
-            if (wiseSayings.get(i).getId() == id) {
-                return i;
-            }
-        }
-
-        return -1;
+        return IntStream.range(0, wiseSayings.size())
+                .filter(index -> wiseSayings.get(index).getId() == id)
+                .findFirst()
+                .orElse(-1);
     }
 
     private WiseSaying findById(int id) {
