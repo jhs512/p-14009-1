@@ -123,10 +123,7 @@ public class App {
     }
 
     WiseSaying write(String content, String author) {
-        WiseSaying wiseSaying = new WiseSaying();
-        wiseSaying.id = ++lastId;
-        wiseSaying.content = content;
-        wiseSaying.author = author;
+        WiseSaying wiseSaying = new WiseSaying(++lastId, content, author);
 
         wiseSayings[++wiseSayingsLastIndex] = wiseSaying;
 
