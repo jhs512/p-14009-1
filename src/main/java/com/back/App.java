@@ -1,5 +1,7 @@
 package com.back;
 
+import com.back.domain.system.controller.SystemController;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,6 +15,8 @@ public class App {
     public void run() {
         System.out.println("== 명언 앱 ==");
 
+        SystemController systemController = new SystemController();
+
         while (true) {
             System.out.print("명령) ");
             String cmd = scanner.nextLine().trim();
@@ -20,7 +24,7 @@ public class App {
 
             switch (rq.getActionName()) {
                 case "종료" -> {
-                    System.out.println("프로그램이 종료합니다.");
+                    systemController.actionExit();
                     return;
                 }
                 case "목록" -> actionList();
