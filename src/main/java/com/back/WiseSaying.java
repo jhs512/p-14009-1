@@ -1,12 +1,16 @@
 package com.back;
 
 public class WiseSaying {
-    private final int id;
+    private int id;
     private String content;
     private String author;
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getContent() {
@@ -25,8 +29,7 @@ public class WiseSaying {
         this.author = author;
     }
 
-    public WiseSaying(int id, String content, String author) {
-        this.id = id;
+    public WiseSaying(String content, String author) {
         this.content = content;
         this.author = author;
     }
